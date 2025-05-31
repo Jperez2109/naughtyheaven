@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contenido Exclusivo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #1a1a1a;
+            color: white;
+            margin: 0;
+            padding: 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        video {
+            max-width: 90%;
+            max-height: 70vh;
+            border-radius: 8px;
+            margin: 20px auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .countdown {
+            font-size: 18px;
+            color: #ccc;
+            margin-top: 20px;
+        }
+        h1 {
+            color: #ff6b6b;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>¡Contenido Exclusivo!</h1>
+    <video id="randomVideo" controls autoplay muted playsinline></video>
+    <p class="countdown">Redirigiendo en <span id="countdown">5</span> segundos...</p>
+
+    <script>
+        // Lista de tus videos en Bunny.net
+        const videos = [
+            "https://NaughtyHeaven.b-cdn.net/Body%20Show.mp4",
+            "https://NaughtyHeaven.b-cdn.net/Hot%20Bunnei1.mp4",
+            "https://NaughtyHeaven.b-cdn.net/Hot%20Bunnie.mp4",
+            "https://NaughtyHeaven.b-cdn.net/Kayla%20Video.mp4",
+            "https://NaughtyHeaven.b-cdn.net/Lesbian%20Vid.mp4",
+            "https://NaughtyHeaven.b-cdn.net/Machine%20Dildo.mp4",
+            "https://NaughtyHeaven.b-cdn.net/Sofie.mp4",
+            "https://NaughtyHeaven.b-cdn.net/Twerk%20Video.mp4",
+            "https://NaughtyHeaven.b-cdn.net/Video%20Sex.mp4",
+            "https://NaughtyHeaven.b-cdn.net/Video%20Sex2.mp4"
+        ];
+
+        // URL de redirección
+        const redirectUrl = "https://turnerforbes.com/cynvzbht?key=04d43a71b0bf50db245d1d21c8e3eb74";
+
+        // Seleccionar video aleatorio
+        const randomVideo = videos[Math.floor(Math.random() * videos.length)];
+        const videoElement = document.getElementById("randomVideo");
+        videoElement.src = randomVideo;
+
+        // Configurar redirección después de 5 segundos
+        let seconds = 5;
+        const countdownElement = document.getElementById("countdown");
+
+        const timer = setInterval(() => {
+            seconds--;
+            countdownElement.textContent = seconds;
+            
+            if (seconds <= 0) {
+                clearInterval(timer);
+                window.location.href = redirectUrl;
+            }
+        }, 1000);
+
+        // Opcional: Reproducir automáticamente en móviles
+        videoElement.addEventListener('loadedmetadata', function() {
+            videoElement.play().catch(e => console.log("Autoplay bloqueado:", e));
+        });
+    </script>
+</body>
+</html>
